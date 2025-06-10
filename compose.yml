@@ -1,0 +1,9 @@
+# Этот файл описывает, как запускать Telegram-бота в Docker Compose
+name: kirill
+services:
+  kirill-tg-bot:
+    container_name: kirill-tg-bot
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env  # Подключаем переменные окружения (токен бота)
