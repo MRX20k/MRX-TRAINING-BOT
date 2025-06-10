@@ -7,10 +7,13 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from datetime import datetime, timedelta
 import json
+import re
 import os
 import re
 
-TOKEN = "8017159479:AAFpmlb-pn2aTr9wI-pHMc7zpN2BSEBscoY"  # Замените на реальный токен
+TOKEN = os.getenv("BOT_TOKEN")
+if not TOKEN:
+    raise ValueError("BOT_TOKEN is not set in environment variables.")
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 scheduler = AsyncIOScheduler()
